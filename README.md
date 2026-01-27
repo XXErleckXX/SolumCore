@@ -40,19 +40,6 @@ La arquitectura es modular, priorizando estándares abiertos y eficiencia de cos
 
 ---
 
-## ⚙️ Protocolo de Carga de Datos (Workflow)
-
-Para garantizar el rendimiento del visor, es **crítico** seguir este protocolo al subir nuevos modelos a Cesium Ion:
-
-1.  **Exportación:** Generar el modelo en formato **.GLB** (glTF binario).
-2.  **Carga en Cesium Ion:**
-    *   Al subir el archivo, selecciona la opción:
-    *   ✅ **3D Model (tile as 3D Tiles)**
-    *   ❌ *NO seleccionar "3D Model (convert to glTF)"*
-3.  **Justificación:** Esta opción habilita el streaming progresivo necesario para visualizar mallas de alta densidad en la web sin colapsar el navegador.
-
----
-
 ## 🖱️ Controles
 
 *   **Click Izquierdo:** Arrastrar mapa (Pan).
@@ -69,5 +56,3 @@ Para garantizar el rendimiento del visor, es **crítico** seguir este protocolo 
 *   **Ingeniería Civil:** Control de movimientos de tierra y taludes.
 
 ---
-
-*Desarrollado para el Datathon con tecnología Cesium.*
