@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,17 +11,20 @@
 
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <div id="cesiumContainer"></div>
-    
+
     <div class="controles">
         <button class="btn btn-modelo" onclick="cargarModelo(4365574)">Villalgordo 1</button>
         <button class="btn btn-modelo" onclick="cargarModelo(4365575)">Villalgordo 2</button>
         <button class="btn btn-modelo" onclick="cargarModelo(4365576)">Minaya</button>
         <button class="btn btn-modelo" onclick="cargarModelo(4365588)">Pinares</button>
         <button class="btn btn-mundo" onclick="irMundo()">🌍 Vista Mundial</button>
+        <button class="btn btn-vari" id="btnVari" onclick="toggleVari()">🍂 VARI Filter: OFF</button>
     </div>
-    
+
     <script src="script.js"></script>
 </body>
+
 </html>
