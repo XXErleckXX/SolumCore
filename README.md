@@ -3,7 +3,7 @@
 **Plataforma de Inteligencia Geoespacial de Acceso Abierto.**
 *Democratizando el acceso a Gemelos Digitales y análisis del terreno de alta resolución.*
 
-🔗 **Demo:** [SolumCoreWeb](https://xxerleckxx.github.io/SolumCore/)
+🔗 **Demo:** [SolumCoreWeb](https://xxerleckxx.github.io/SolumCore/))   **SE RECOMIENDA FIREFOX / SAFARI**
 
 ---
 
