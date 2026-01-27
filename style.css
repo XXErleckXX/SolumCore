@@ -58,12 +58,118 @@ body,
     margin-bottom: 0;
 }
 
-.btn-vari {
-    background: #e67e22;
-    /* Orange-ish */
+
+.model-select {
+    padding: 15px 20px;
+    margin-bottom: 10px;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    background: #4a90e2;
+    color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    outline: none;
+    appearance: none;
+
+    background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23FFFFFF%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2082.2c3.6-3.6%205.4-7.8%205.4-12.8%200-5-1.8-9.3-5.4-12.9z%22%2F%3E%3C%2Fsvg%3E");
+    background-repeat: no-repeat;
+    background-position: right 15px top 50%;
+    background-size: 12px auto;
+}
+
+.model-select:hover {
+    background-color: #357abd;
+}
+
+.model-select option {
+    background: white;
+    color: #333;
+}
+
+
+.vari-container {
     margin-top: 10px;
+    position: relative;
+    display: flex;
+    align-items: center;
     width: 100%;
 }
+
+.btn-vari {
+    background: #e67e22;
+
+    margin-top: 0;
+
+    flex-grow: 1;
+    margin-right: 10px;
+}
+
+.tooltip-container {
+    position: relative;
+    display: inline-block;
+}
+
+.info-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+    cursor: help;
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.info-icon:hover {
+    background: rgba(255, 255, 255, 0.4);
+}
+
+.tooltip-text {
+    visibility: hidden;
+    width: 220px;
+    background-color: rgba(30, 30, 30, 0.95);
+    color: #fff;
+    text-align: left;
+    border-radius: 6px;
+    padding: 10px;
+    position: absolute;
+    z-index: 1001;
+    bottom: 125%;
+
+    left: 50%;
+    margin-left: -110px;
+
+    opacity: 0;
+    transition: opacity 0.3s;
+    font-size: 12px;
+    line-height: 1.4;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.tooltip-text::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: rgba(30, 30, 30, 0.95) transparent transparent transparent;
+}
+
+.tooltip-container:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
+}
+
 
 .btn-vari:hover {
     background: #d35400;

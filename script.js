@@ -25,8 +25,6 @@ const modelos = {
 let tilesetActual = null;
 
 
-
-// VARI Filter Implementation
 let variEnabled = false;
 
 const variShader = new Cesium.CustomShader({
@@ -62,15 +60,16 @@ const variShader = new Cesium.CustomShader({
             float t = clamp((vari - 0.1) / 0.9, 0.0, 1.0);
             outColor = mix(vec3(0.8, 1.0, 0.0), vec3(0.0, 0.5, 0.0), t); // Yellow-Green to Dark Green
         } else if (vari > -0.1) {
-             // Transition - Yellow/Orange
+             // Transition - Yellow/Orange / Red-Orange
              // Normalize -0.1 to 0.1 -> 0.0 to 1.0
              float t = clamp((vari + 0.1) / 0.2, 0.0, 1.0);
-             outColor = mix(vec3(0.8, 0.5, 0.2), vec3(0.8, 1.0, 0.0), t); 
+             outColor = mix(vec3(0.9, 0.2, 0.0), vec3(0.8, 1.0, 0.0), t); 
         } else {
-             // Non-vegetation - Red/Brown
+             // Non-vegetation - Red/Maroon
              // Normalize -1.0 to -0.1 -> 0.0 to 1.0
              float t = clamp((vari + 1.0) / 0.9, 0.0, 1.0);
-             outColor = mix(vec3(0.3, 0.1, 0.0), vec3(0.8, 0.5, 0.2), t);
+             // mix(Dark Red, Bright Red)
+             outColor = mix(vec3(0.4, 0.0, 0.0), vec3(0.9, 0.2, 0.0), t);
         }
 
         material.diffuse = outColor;
@@ -95,17 +94,10 @@ window.toggleVari = () => {
     }
 };
 
-// Hook into cargarModelo to apply shader if enabled
+
 const originalCargarModelo = window.cargarModelo;
 window.cargarModelo = async id => {
-    // We already have the logic in the original function, but we need to ensure the shader is applied
-    // The easiest way is to let the original run, then set the shader on tilesetActual
 
-    // However, original function replaces tilesetActual. 
-    // Let's modify the Original function instead of wrapping it, to be cleaner, 
-    // but since I'm in a 'replace_file_content' block, I can just rewrite the function above or below.
-    // The block I'm replacing ends at line 47. 
-    // I will redefine cargarModelo completely here to include the shader logic.
 
     try {
         if (tilesetActual) {
@@ -115,10 +107,10 @@ window.cargarModelo = async id => {
 
         console.log("Cargando " + modelos[id] + " (ID: " + id + ")...");
 
-        // Load the tileset
+
         const tileset = await Cesium.Cesium3DTileset.fromIonAssetId(id);
 
-        // Apply shader if enabled
+
         if (variEnabled) {
             tileset.customShader = variShader;
         }
@@ -139,6 +131,9 @@ window.irMundo = () => {
         viewer.scene.primitives.remove(tilesetActual);
         tilesetActual = null;
     }
+
+
+    document.getElementById('modelSelect').value = "";
 
     viewer.camera.flyTo({
         destination: Cesium.Cartesian3.fromDegrees(-4, 40, 18000000),

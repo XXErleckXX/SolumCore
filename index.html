@@ -16,12 +16,27 @@
     <div id="cesiumContainer"></div>
 
     <div class="controles">
-        <button class="btn btn-modelo" onclick="cargarModelo(4365574)">Villalgordo 1</button>
-        <button class="btn btn-modelo" onclick="cargarModelo(4365575)">Villalgordo 2</button>
-        <button class="btn btn-modelo" onclick="cargarModelo(4365576)">Minaya</button>
-        <button class="btn btn-modelo" onclick="cargarModelo(4365588)">Pinares</button>
+        <select id="modelSelect" class="model-select" onchange="cargarModelo(this.value)">
+            <option value="" disabled selected>Seleccionar modelo</option>
+            <option value="4365574">Villalgordo 1</option>
+            <option value="4365575">Villalgordo 2</option>
+            <option value="4365576">Minaya</option>
+            <option value="4365588">Pinares</option>
+        </select>
         <button class="btn btn-mundo" onclick="irMundo()">🌍 Vista Mundial</button>
-        <button class="btn btn-vari" id="btnVari" onclick="toggleVari()">🍂 VARI Filter: OFF</button>
+        <div class="vari-container">
+            <button class="btn btn-vari" id="btnVari" onclick="toggleVari()">🍂 VARI Filter: OFF</button>
+            <div class="tooltip-container">
+                <span class="info-icon">?</span>
+                <span class="tooltip-text">
+                    <strong>¿Qué es VARI?</strong><br>
+                    El Índice Atmosféricamente Resistente Visible (VARI) resalta la vegetación usando solo el espectro
+                    visible.<br>
+                    <span style="color:#2ecc71">■</span> Vegetación sana<br>
+                    <span style="color:#e74c3c">■</span> Suelo desnudo / Sin vegetación
+                </span>
+            </div>
+        </div>
     </div>
 
     <script src="script.js"></script>
