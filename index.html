@@ -37,9 +37,38 @@
                 </span>
             </div>
         </div>
+
+        <div class="water-container">
+            <button class="btn btn-water" id="btnWater" onclick="toggleWater()">💧 Water Filter: OFF</button>
+            <div class="tooltip-container">
+                <span class="info-icon">?</span>
+                <span class="tooltip-text">
+                    <strong>¿Qué es el Filtro de Agua?</strong><br>
+                    Este filtro resalta las zonas de agua detectando la predominancia del azul.<br>
+                    <span style="color:#3498db">■</span> Agua (Azul)<br>
+                    <span style="color:#000000">■</span> Sin agua (Negro)
+                </span>
+            </div>
+        </div>
+
+        <div class="row-controls" id="modelControls" style="display: none;">
+            <div id="heightControl" class="height-control">
+                <label for="heightSlider">Altura</label>
+                <div class="height-content">
+                    <div class="slider-wrapper">
+                        <span>+</span>
+                        <input type="range" id="heightSlider" min="-100" max="0" value="0" step="1"
+                            oninput="updateHeight(this.value)">
+                        <span>-</span>
+                    </div>
+                </div>
+            </div>
+            <button id="btnVisibility" class="btn btn-visibility" onclick="toggleVisibility()">
+                Visibility 👁️
+            </button>
+        </div>
     </div>
 
     <script src="script.js"></script>
 </body>
-
 </html>
